@@ -4,9 +4,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PostCard from '../components/PostCard.astro';
 import { SITE_TAGLINE, SOCIALS } from '../consts';
 
-const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+// Drafts are visible while developing (`npm run dev`) but excluded from the
+// production build, so you can preview a post before publishing it.
+const posts = (
+  await getCollection('blog', ({ data }) => import.meta.env.DEV || !data.draft)
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 const recent = posts.slice(0, 3);
 ---
 
