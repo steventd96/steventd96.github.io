@@ -1,0 +1,13 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0b0d12"/>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <text x="80" y="300" font-family="Inter, system-ui, sans-serif" font-size="76" font-weight="700" fill="#e7e9ee" letter-spacing="-2">Steven Dirjayanto</text>
+  <text x="80" y="380" font-family="Inter, system-ui, sans-serif" font-size="38" font-weight="500" fill="#8b83ff">Software Engineer &amp; Tech Writer</text>
+  <rect x="80" y="450" width="72" height="6" rx="3" fill="#8b83ff"/>
+  <defs>
+    <radialGradient id="g" cx="85%" cy="15%" r="90%">
+      <stop offset="0%" stop-color="#4f46e5" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#0b0d12" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

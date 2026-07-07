@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Not found" description="Page not found.">
+  <div class="container notfound rise">
+    <p class="eyebrow">404</p>
+    <h1>This page wandered off.</h1>
+    <p class="muted">
+      The page you're looking for doesn't exist or may have moved.
+    </p>
+    <div class="actions">
+      <a href="/" class="btn btn-primary">Go home</a>
+      <a href="/blog" class="btn">Browse the blog</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .notfound {
+    max-width: 40rem;
+    text-align: center;
+    padding-block: 4rem;
+  }
+  .notfound h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+    margin: 0.5rem 0 1rem;
+  }
+  .actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+</style>

@@ -1,0 +1,139 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  tags?: string[];
+  minutesRead?: string;
+}
+
+const { title, description, pubDate, updatedDate, tags = [], minutesRead } =
+  Astro.props;
+---
+
+<BaseLayout title={title} description={description} type="article">
+  <article class="container">
+    <header class="post-header prose rise">
+      <a href="/blog" class="back-link">← All posts</a>
+      <div class="post-meta">
+        <FormattedDate date={pubDate} />
+        {minutesRead && <span class="dot">·</span>}
+        {minutesRead && <span>{minutesRead}</span>}
+        {
+          updatedDate && (
+            <span class="updated">
+              (updated <FormattedDate date={updatedDate} />)
+            </span>
+          )
+        }
+      </div>
+      <h1>{title}</h1>
+      <p class="lede muted">{description}</p>
+      {
+        tags.length > 0 && (
+          <ul class="tags">
+            {tags.map((t) => (
+              <li>#{t}</li>
+            ))}
+          </ul>
+        )
+      }
+    </header>
+
+    <div class="post-body prose">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .back-link {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 1.75rem;
+  }
+  .back-link:hover {
+    color: var(--accent);
+  }
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.9rem;
+  }
+  .dot {
+    opacity: 0.5;
+  }
+  .post-header h1 {
+    font-size: clamp(2rem, 5vw, 2.9rem);
+    margin-bottom: 0.9rem;
+  }
+  .lede {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+  .tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    padding: 0;
+  }
+  .tags li {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+  }
+
+  .post-body {
+    margin-top: 2.5rem;
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    line-height: 1.75;
+  }
+
+  /* Article typography */
+  .post-body :global(h2) {
+    font-family: var(--font-sans);
+    font-size: 1.65rem;
+    margin-top: 2.75rem;
+    margin-bottom: 1rem;
+  }
+  .post-body :global(h3) {
+    font-family: var(--font-sans);
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .post-body :global(p) {
+    margin-bottom: 1.35rem;
+  }
+  .post-body :global(ul),
+  .post-body :global(ol) {
+    margin: 0 0 1.35rem 1.25rem;
+  }
+  .post-body :global(li) {
+    margin-bottom: 0.5rem;
+  }
+  .post-body :global(img) {
+    border-radius: var(--radius-sm);
+    margin: 2rem 0;
+  }
+  .post-body :global(pre) {
+    font-family: var(--font-mono);
+    margin: 1.75rem 0;
+  }
+</style>

@@ -1,0 +1,91 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { SITE_TAGLINE, SOCIALS } from '../consts';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const recent = posts.slice(0, 3);
+---
+
+<BaseLayout>
+  <section class="hero container rise">
+    <p class="eyebrow">{SITE_TAGLINE}</p>
+    <h1>
+      Hi, I'm Steven — I build software and write about how it works.
+    </h1>
+    <p class="hero-sub muted">
+      Notes on software engineering, system design, and modern development
+      practices. Occasionally opinionated, always practical.
+    </p>
+    <div class="hero-actions">
+      <a href="/blog" class="btn btn-primary">Read the blog</a>
+      <a href={SOCIALS.github} target="_blank" rel="noopener" class="btn">
+        GitHub
+      </a>
+    </div>
+  </section>
+
+  <section class="container recent">
+    <div class="section-head">
+      <h2>Latest posts</h2>
+      <a href="/blog" class="see-all">View all →</a>
+    </div>
+    <div class="post-grid">
+      {
+        recent.map((post) => (
+          <PostCard
+            url={`/blog/${post.id}/`}
+            title={post.data.title}
+            description={post.data.description}
+            pubDate={post.data.pubDate}
+            tags={post.data.tags}
+          />
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    max-width: 52rem;
+    padding-block: 3.5rem 4rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 6vw, 3.4rem);
+    margin: 0.75rem 0 1.25rem;
+    letter-spacing: -0.03em;
+  }
+  .hero-sub {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 40rem;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+  .section-head h2 {
+    font-size: 1.5rem;
+  }
+  .see-all {
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+</style>

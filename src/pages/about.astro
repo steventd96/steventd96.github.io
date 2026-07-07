@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SOCIALS } from '../consts';
+---
+
+<BaseLayout
+  title="About"
+  description="A little about Steven Dirjayanto — software engineer and writer."
+>
+  <div class="container">
+    <article class="prose rise">
+      <p class="eyebrow">About</p>
+      <h1>Hi, I'm Steven.</h1>
+
+      <p>
+        I'm a software engineer who enjoys building reliable systems and writing
+        about the reasoning behind them. This blog is where I think out loud
+        about engineering, system design, and the tools I use day to day.
+      </p>
+
+      <p>
+        <em>
+          This is placeholder text — edit <code>src/pages/about.astro</code> to
+          make it your own.
+        </em>
+      </p>
+
+      <h2>What I write about</h2>
+      <ul>
+        <li>Software engineering practices and patterns</li>
+        <li>System and API design tradeoffs</li>
+        <li>Lessons from things that broke (and got fixed)</li>
+      </ul>
+
+      <h2>Elsewhere</h2>
+      <p>You can find me on:</p>
+      <ul>
+        <li><a href={SOCIALS.github} target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href={SOCIALS.twitter} target="_blank" rel="noopener">Twitter</a></li>
+        <li><a href={SOCIALS.linkedin} target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href={SOCIALS.email}>Email</a></li>
+      </ul>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .prose h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin: 0.5rem 0 1.5rem;
+  }
+  .prose h2 {
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 0.9rem;
+  }
+  .prose p {
+    margin-bottom: 1.25rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+  .prose ul {
+    margin: 0 0 1.25rem 1.25rem;
+  }
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+</style>
