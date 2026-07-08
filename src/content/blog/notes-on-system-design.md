@@ -3,6 +3,7 @@ title: 'A few notes on system design'
 description: 'Some principles I keep coming back to when designing systems that need to survive contact with production.'
 pubDate: 2026-06-28
 tags: ['system-design', 'engineering']
+draft: true
 ---
 
 I've designed and rebuilt enough systems to notice the ideas that keep proving

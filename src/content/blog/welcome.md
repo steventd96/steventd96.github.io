@@ -3,6 +3,7 @@ title: 'Welcome to the new blog'
 description: 'A fresh start — why I rebuilt this site with Astro and what I plan to write about.'
 pubDate: 2026-07-07
 tags: ['meta', 'astro']
+draft: true
 ---
 
 After sitting on a stock Jekyll theme for far too long, I finally rebuilt this

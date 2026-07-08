@@ -3,6 +3,7 @@ title: 'How this blog is built'
 description: 'A tour of the Astro setup powering this site — content collections, theming, and zero-JS-by-default rendering.'
 pubDate: 2026-07-05
 tags: ['astro', 'web', 'tutorial']
+draft: true
 ---
 
 This site is intentionally simple. No database, no CMS, no client framework —
