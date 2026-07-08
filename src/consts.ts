@@ -2,17 +2,15 @@
 // across every page.
 
 export const SITE_TITLE = 'Steven Dirjayanto';
-export const SITE_TAGLINE = 'Software Engineer & Tech Writer';
+export const SITE_TAGLINE = 'Curious technologist, always learning';
 export const SITE_DESCRIPTION =
-  'A technical blog exploring software engineering, system design, and modern development practices.';
+  'A passionate technologist who stays curious and keen to keep learning — writing about software, system design, and the business of technology.';
 
 // Deployed origin. Keep in sync with `site` in astro.config.mjs.
 export const SITE_URL = 'https://steventd96.github.io';
 
 export const SOCIALS = {
-  github: 'https://github.com/steventd96',
-  twitter: 'https://twitter.com/SDirjayanto',
-  linkedin: 'https://www.linkedin.com/in/stevendirjayanto',
+  linkedin: 'https://www.linkedin.com/in/steven-dirjayanto/',
   email: 'mailto:steventd96@gmail.com',
 };
 
