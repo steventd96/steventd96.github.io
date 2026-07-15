@@ -47,9 +47,9 @@ In the Interact Gateway, go to **Settings → OAuth providers** and add a third-
 
 | Field | Value |
 |---|---|
-| Authorization URL | `https://eval.verify.ibm.com/oauth2/authorize` |
-| Token URL | `https://eval.verify.ibm.com/oauth2/token` |
-| **Introspect URL** | `https://eval.verify.ibm.com/oauth2/introspect` |
+| Authorization URL | `https://<tenant>.verify.ibm.com/oauth2/authorize` |
+| Token URL | `https://<tenant>.verify.ibm.com/oauth2/token` |
+| **Introspect URL** | `https://<tenant>.verify.ibm.com/oauth2/introspect` |
 | Security | **Basic Authentication** |
 | OAuth version | OAuth 2.0 |
 
@@ -146,7 +146,7 @@ Publish the project to the gateway. After publishing, re-check the policy sequen
 With the `authorization_code` grant, obtain a token via a browser authorize step followed by a code exchange:
 
 ```bash
-curl -X POST 'https://eval.verify.ibm.com/oauth2/token' \
+curl -X POST 'https://<tenant>.verify.ibm.com/oauth2/token' \
   -u 'CLIENT_ID:CLIENT_SECRET' \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   -d 'grant_type=authorization_code' \
