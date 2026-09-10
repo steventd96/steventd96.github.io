@@ -1,7 +1,7 @@
 ---
 title: 'From Agent Builder to Agent Control Plane: Observability for Externally Running Agents in watsonx Orchestrate'
 description: 'How to register an agent running anywhere into watsonx Orchestrate and push structured traces to Agent Analytics — a step-by-step technical guide with working code.'
-pubDate: 2025-07-15
+pubDate: 2026-09-10
 tags: ['ai', 'agents', 'ibm', 'observability', 'langgraph', 'platform-engineering']
 draft: false
 ---
